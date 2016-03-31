@@ -46,10 +46,39 @@ typedef enum {
 @property (nonatomic, strong) NSArray* slotsArray; //raw array from json
 @property (nonatomic, strong) NSDictionary* rawAnimationDictionary; //raw information from JSON
 
+/**
+ Sets this object to load an spine with an atlas and a skin preset
+ 
+ - parameters:
+ - name : NSString. Name of spine json.
+ - atlasName : NSString Name of atlas in the xcode atlas format
+ - skinName : NSString with name of the skin to load
+ - returns: nothing
+ */
 -(void)skeletonFromFileNamed:(NSString*)name andAtlasNamed:(NSString*)atlasName andUseSkinNamed:(NSString*)skinName;
 
+
+/*!
+ * @discussion Method to set the animation to run.
+ * @param animationName NSString with the name of animation
+ * @param count number of times to repeat animation.
+ * @param withIntroPeriodOf time to wait before set animation to run
+ * @return Nothing
+ */
 -(void)runAnimation:(NSString*)animationName andCount:(NSInteger)count withIntroPeriodOf:(const CGFloat)introPeriod andUseQueue:(BOOL)useQueue;
+/*!
+ * @discussion Method to set the animation to run.
+ * @param animationName NSString with the name of animation
+ * @param count number of times to repeat animation.
+ * @return Nothing
+ */
 -(void)runAnimation:(NSString*)animationName andCount:(NSInteger)count;
+/*!
+ * @discussion Method to set a Sequence of Animations to run.
+ * @param animationName NSString with the name of animation
+ * @param count number of times to repeat animation.
+ * @return Nothing
+ */
 -(void)runAnimationSequence:(NSArray *)animationNames andUseQueue:(BOOL)useQueue;
 -(void)stopAnimation;
 -(void)jumpToFrame:(NSInteger)frame;
