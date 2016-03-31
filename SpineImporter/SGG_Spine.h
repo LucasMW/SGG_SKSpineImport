@@ -56,52 +56,52 @@ typedef enum {
 -(void)jumpToNextFrame;
 -(void)jumpToPreviousFrame;
 /*!
- * @discussion This method has to be called at every SpriteKit update - name should be changed to UpdateAnimation
+ * @description This method has to be called at every SpriteKit update - name should be changed to UpdateAnimation
  * @return Void
  */
 -(void)activateAnimations;
 /*!
- * @discussion Reset all bones to current
+ * @description Reset all bones to original
  * @return Void
  */
 -(void)resetSkeleton;
 /*!
- * @discussion Changes current skin to given skin
+ * @description Changes current skin to given skin
  * @param skin The skin to replace
  * @return Void
  */
 -(void)changeSkinTo:(NSString*)skin;
 /*!
- * @discussion Changes skin to an array of selected skins
+ * @description Changes skin to an array of selected skins
  * @param slotsToReplace Array of skins to replace
  * @return Void
  */
 -(void)changeSkinPartial:(NSDictionary *)slotsToReplace;
 /*!
- * @discussion Resets skins to original
+ * @description Resets skins to original
  * @return Void
  */
 -(void)resetSkinPartial;
 /*!
- * @discussion Changes texture to an array of selected textures
+ * @description Changes texture to an array of selected textures
  * @param attachmentsToReplace Array of textures to replace
  * @return Void
  */
 -(void)changeTexturePartial:(NSDictionary *)attachmentsToReplace;
 /*!
- * @discussion Resets swapped textures to the original skin
+ * @description Resets swapped textures to the original skin
  * @return Void
  */
 -(void)resetTexturePartial;
 /*!
- * @discussion Colorizes all slots with the defined color and blend factor
+ * @description Colorizes all slots with the defined color and blend factor
  * @param color Desired color
  * @param blendFactor Desired intensity
  * @return Void
  */
 -(void)colorizeAllSlotsWithColor:(SKColor *)color andIntensity:(CGFloat)blendFactor;
 /*!
- * @discussion Colorizes an array of slots with the defined color and blend factor
+ * @description Colorizes an array of slots with the defined color and blend factor
  * @param slotsToColorize Selected slots
  * @param color Desired color
  * @param blendFactor Desired intensity
@@ -110,7 +110,7 @@ typedef enum {
 -(void)colorizeSlots:(NSArray *)slotsToColorize withColor:(SKColor *)color andIntensity:(CGFloat)blendFactor;
 
 /*!
- * @discussion Resets all colorized slots to white and removes all the colorized nodes
+ * @description Resets all colorized slots to white and removes all the colorized nodes
  * @return Void
  */
 -(void)resetColorizedSlots;
