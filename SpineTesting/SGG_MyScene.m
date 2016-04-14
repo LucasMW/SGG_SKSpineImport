@@ -186,7 +186,7 @@
 
 	startLocation = location;
 	
-	[elf runAnimation:@"trip" andCount:0 withIntroPeriodOf:0.1 andUseQueue:YES];
+//	[elf runAnimation:@"trip" andCount:0 withIntroPeriodOf:0.1 andUseQueue:YES];
 	
 
 	
@@ -197,6 +197,7 @@
 	[boy colorizeSlots:partsToColorize withColor:color andIntensity:1];
 	
 	[goblin colorizeAllSlotsWithColor:[SKColor blueColor] andIntensity:0.8];
+    
 /*
 //this section is a correct example of partial texture replacement
 	NSDictionary* partReplacement = @{@"torso": @"goblin-torso", @"head": @"goblin-head"};
@@ -236,14 +237,14 @@
 
 -(void)inputEnded:(CGPoint)location {
 
-	[goblin changeSkinTo:@"goblin"];
+//	[goblin changeSkinTo:@"goblin"];
 	
 //	[goblin resetSkinPartial];
-	[goblin resetTexturePartial];
+//	[goblin resetTexturePartial];
 	
 	//reset the colors
-	[boy resetColorizedSlots];
-	[goblin resetColorizedSlots];
+//	[boy resetColorizedSlots];
+//	[goblin resetColorizedSlots];
 	
 	//[goblin resetSkeleton];
 	

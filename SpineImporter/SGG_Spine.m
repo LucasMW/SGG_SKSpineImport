@@ -503,7 +503,7 @@
     
     for (int i = 0; i < _skinSlots.count; i++) {
 		SKNode* slot = (SKNode*)[_skinSlots objectAtIndex:i];
-		[slot enumerateChildNodesWithName:@"//*" usingBlock:^(SKNode *node, BOOL *stop) {
+		[slot enumerateChildNodesWithName:@"*" usingBlock:^(SKNode *node, BOOL *stop) {
 			for(NSString* colorizedNode in slotsToColorize){
                 if([colorizedNode isEqualToString:node.name]) {
                     SKSpriteNode* thisNode = (SKSpriteNode *)node;
