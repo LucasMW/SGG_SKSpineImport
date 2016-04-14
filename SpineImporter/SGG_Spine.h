@@ -36,6 +36,8 @@ typedef enum {
 @property (nonatomic, strong) NSMutableDictionary* swappedTextures;
 @property (nonatomic, strong) NSMutableArray* colorizedNodes;
 
+@property (nonatomic, assign) CGFloat skeletonWidth; //got from spine json
+@property (nonatomic, assign) CGFloat skeletonHeight; //got from spine json
 
 @property (nonatomic, strong) NSArray* bones;
 @property (nonatomic, strong) NSArray* skinSlots; //active slots in animation
@@ -93,6 +95,9 @@ typedef enum {
  * @description Reset all bones to original
  * @return Void
  */
+
+-(void)endOfAnimation;
+
 -(void)resetSkeleton;
 /*!
  * @description Changes current skin to given skin

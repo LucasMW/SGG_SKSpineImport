@@ -35,8 +35,13 @@
 	}
 	return self;
 }
+-(void)skeletonFromFileNamed:(NSString*)name andAtlasNamed:(NSString*)atlasName andUseSkinNamed:(NSString*)skinName
+{
+    SKTextureAtlas* atlas = [SKTextureAtlas atlasNamed:atlasName];
+    [self skeletonFromFileNamed:name andAtlas:atlas andUseSkinNamed:skinName];
+}
 
--(void)skeletonFromFileNamed:(NSString*)name andAtlasNamed:(NSString*)atlasName andUseSkinNamed:(NSString*)skinName {
+-(void)skeletonFromFileNamed:(NSString*)name andAtlas:(SKTextureAtlas*)atlas andUseSkinNamed:(NSString*)skinName {
 
 //	NSTimeInterval timea = CFAbsoluteTimeGetCurrent(); //benchmarking
 
@@ -56,7 +61,7 @@
 	[self creatSlotsAndAttachToBonesWithSlotsArray:_slotsArray];
 	
 	NSDictionary* skinsDict = [NSDictionary dictionaryWithDictionary:[spineDict objectForKey:@"skins"]];
-	[self createSkinsFromDict:skinsDict andAtlasNamed:atlasName];
+	[self createSkinsFromDict:skinsDict andAtlas:atlas];
 
 	[self changeSkinTo:_currentSkin];
 
@@ -66,6 +71,10 @@
 	
 //	NSTimeInterval timeb = CFAbsoluteTimeGetCurrent(); //benchmarking
 //	NSLog(@"time taken: %f", timeb - timea); //benchmarking
+    
+    NSDictionary*  skeleton = [NSDictionary dictionaryWithDictionary:[spineDict objectForKey:@"skeleton"]];
+    self.skeletonWidth = [[skeleton valueForKey:@"width"] floatValue];
+    self.skeletonHeight = [[skeleton valueForKey:@"height"] floatValue];
 
 }
 
@@ -686,10 +695,15 @@
 	
 	
 }
+-(void)createSkinsFromDict:(NSDictionary*)skinsDict andAtlasNamed:(NSString*)atlasName
+{
+    //pull in texture atlas
+    SKTextureAtlas* atlas = [SKTextureAtlas atlasNamed:atlasName];
+    [self createSkinsFromDict:skinsDict andAtlas:atlas];
+}
 
--(void)createSkinsFromDict:(NSDictionary*)skinsDict andAtlasNamed:(NSString*)atlasName{
-	//pull in texture atlas
-	SKTextureAtlas* atlas = [SKTextureAtlas atlasNamed:atlasName];
+-(void)createSkinsFromDict:(NSDictionary*)skinsDict andAtlas:(SKTextureAtlas*)atlas{
+	
 	
 	//get all skins
 	NSArray* skinKeys = [skinsDict allKeys];
