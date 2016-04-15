@@ -48,17 +48,25 @@ typedef enum {
 @property (nonatomic, strong) NSArray* slotsArray; //raw array from json
 @property (nonatomic, strong) NSDictionary* rawAnimationDictionary; //raw information from JSON
 
-/**
- Sets this object to load an spine with an atlas and a skin preset
- 
- - parameters:
- - name : NSString. Name of spine json.
- - atlasName : NSString Name of atlas in the xcode atlas format
- - skinName : NSString with name of the skin to load
- - returns: nothing
+/*!
+ * @discussion Sets this object to load an spine with an atlas and a skin preset
+ * @attention this overload is for pre-made (compile-time) atlases
+ * @param name : NSString. Name of spine json.
+ * @param atlasName : NSString Name of atlas in the xcode atlas format
+ * @param skinName : NSString with name of the skin to load
+ * @param returns: nothing
  */
 -(void)skeletonFromFileNamed:(NSString*)name andAtlasNamed:(NSString*)atlasName andUseSkinNamed:(NSString*)skinName;
 
+/*!
+  * @discussion Sets this object to load an spine with an atlas and a skin preset
+  * @attention  this overload is for runtime generated atlases
+  * @param name : NSString. Name of spine json.
+  * @param atlas : SKTextureAtlas Object that represents the Atlas
+  * @param skinName : NSString with name of the skin to load
+  * @param returns: nothing
+ */
+-(void)skeletonFromFileNamed:(NSString*)name andAtlas:(SKTextureAtlas*)atlas andUseSkinNamed:(NSString*)skinName; //MW Edit
 
 /*!
  * @discussion Method to set the animation to run.
